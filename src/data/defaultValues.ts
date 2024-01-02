@@ -1,220 +1,222 @@
 import { SelectorValue } from "../components/board/Selector";
 
 const selectorA1: SelectorValue = {
-  id: "a1",
+  id: "selectorA1",
   selected: false,
 };
 
 const selectorA2: SelectorValue = {
-  id: "a2",
+  id: "selectorA2",
   selected: false,
 };
 const selectorA3: SelectorValue = {
-  id: "a3",
+  id: "selectorA3",
   selected: false,
 };
 
 const selectorA4: SelectorValue = {
-  id: "a4",
+  id: "selectorA4",
   selected: false,
 };
 const selectorA5: SelectorValue = {
-  id: "a5",
+  id: "selectorA5",
   selected: false,
 };
 
 const selectorA6: SelectorValue = {
-  id: "a6",
+  id: "selectorA6",
   selected: false,
 };
+
 const selectorA7: SelectorValue = {
-  id: "a7",
+  id: "selectorA7",
   selected: false,
 };
+
 const selectorB1: SelectorValue = {
-  id: "b1",
+  id: "selectorB1",
   selected: false,
 };
 
 const selectorB2: SelectorValue = {
-  id: "b2",
+  id: "selectorB2",
   selected: false,
 };
 const selectorB3: SelectorValue = {
-  id: "b3",
+  id: "selectorB3",
   selected: false,
 };
 
 const selectorB4: SelectorValue = {
-  id: "b4",
+  id: "selectorB4",
   selected: false,
 };
 const selectorB5: SelectorValue = {
-  id: "b5",
+  id: "selectorB5",
   selected: false,
 };
 
 const selectorB6: SelectorValue = {
-  id: "b6",
+  id: "selectorB6",
   selected: false,
 };
 const selectorB7: SelectorValue = {
-  id: "b7",
+  id: "selectorB7",
   selected: false,
 };
 const selectorC1: SelectorValue = {
-  id: "c1",
+  id: "selectorC1",
   selected: false,
 };
 
 const selectorC2: SelectorValue = {
-  id: "c2",
+  id: "selectorC2",
   selected: false,
 };
 const selectorC3: SelectorValue = {
-  id: "c3",
+  id: "selectorC3",
   selected: false,
 };
 
 const selectorC4: SelectorValue = {
-  id: "c4",
+  id: "selectorC4",
   selected: false,
 };
 const selectorC5: SelectorValue = {
-  id: "c5",
+  id: "selectorC5",
   selected: false,
 };
 
 const selectorC6: SelectorValue = {
-  id: "c6",
+  id: "selectorC6",
   selected: false,
 };
 const selectorC7: SelectorValue = {
-  id: "c7",
+  id: "selectorC7",
   selected: false,
 };
 const selectorD1: SelectorValue = {
-  id: "d1",
+  id: "selectorD1",
   selected: false,
 };
 
 const selectorD2: SelectorValue = {
-  id: "d2",
+  id: "selectorD2",
   selected: false,
 };
 const selectorD3: SelectorValue = {
-  id: "d3",
+  id: "selectorD3",
   selected: false,
 };
 
 const selectorD4: SelectorValue = {
-  id: "d4",
+  id: "selectorD4",
   selected: false,
 };
 const selectorD5: SelectorValue = {
-  id: "d5",
+  id: "selectorD5",
   selected: false,
 };
 
 const selectorD6: SelectorValue = {
-  id: "d6",
+  id: "selectorD6",
   selected: false,
 };
 const selectorD7: SelectorValue = {
-  id: "d7",
+  id: "selectorD7",
   selected: false,
 };
 const selectorE1: SelectorValue = {
-  id: "e1",
+  id: "selectorE1",
   selected: false,
 };
 
 const selectorE2: SelectorValue = {
-  id: "e2",
+  id: "selectorE2",
   selected: false,
 };
 const selectorE3: SelectorValue = {
-  id: "e3",
+  id: "selectorE3",
   selected: false,
 };
 
 const selectorE4: SelectorValue = {
-  id: "e4",
+  id: "selectorE4",
   selected: false,
 };
 const selectorE5: SelectorValue = {
-  id: "e5",
+  id: "selectorE5",
   selected: false,
 };
 
 const selectorE6: SelectorValue = {
-  id: "e6",
+  id: "selectorE6",
   selected: false,
 };
 const selectorE7: SelectorValue = {
-  id: "e7",
+  id: "selectorE7",
   selected: false,
 };
 const selectorF1: SelectorValue = {
-  id: "f1",
+  id: "selectorF1",
   selected: false,
 };
 
 const selectorF2: SelectorValue = {
-  id: "f2",
+  id: "selectorF2",
   selected: false,
 };
 const selectorF3: SelectorValue = {
-  id: "f3",
+  id: "selectorF3",
   selected: false,
 };
 
 const selectorF4: SelectorValue = {
-  id: "f4",
+  id: "selectorF4",
   selected: false,
 };
 const selectorF5: SelectorValue = {
-  id: "f5",
+  id: "selectorF5",
   selected: false,
 };
 
 const selectorF6: SelectorValue = {
-  id: "f6",
+  id: "selectorF6",
   selected: false,
 };
 const selectorF7: SelectorValue = {
-  id: "f7",
+  id: "selectorF7",
   selected: false,
 };
 const selectorG1: SelectorValue = {
-  id: "g1",
+  id: "selectorG1",
   selected: false,
 };
 
 const selectorG2: SelectorValue = {
-  id: "g2",
+  id: "selectorG2",
   selected: false,
 };
 const selectorG3: SelectorValue = {
-  id: "g3",
+  id: "selectorG3",
   selected: false,
 };
 
 const selectorG4: SelectorValue = {
-  id: "g4",
+  id: "selectorG4",
   selected: false,
 };
 const selectorG5: SelectorValue = {
-  id: "g5",
+  id: "selectorG5",
   selected: false,
 };
 
 const selectorG6: SelectorValue = {
-  id: "g6",
+  id: "selectorG6",
   selected: false,
 };
 const selectorG7: SelectorValue = {
-  id: "g7",
+  id: "selectorG7",
   selected: false,
 };
 

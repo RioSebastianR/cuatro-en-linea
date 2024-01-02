@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export interface SelectorValue {
   id: string;
   selected: boolean;
@@ -8,17 +6,17 @@ export interface SelectorValue {
 
 interface Props {
   value: SelectorValue;
+  onChange: (value: SelectorValue) => void;
 }
 
-export const Selector = (props: Props) => {
-  const [value, setValue] = useState(props.value);
-
+export const Selector = ({ value, onChange }: Props) => {
   const handleClick = () => {
-    setValue({
-      id: props.value.id,
+    onChange({
+      id: value.id,
       selected: true,
       color: "red",
     });
+
     console.log(`Se ha seleccionado el casillero ${value.id}, color: red`);
   };
 

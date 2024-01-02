@@ -1,57 +1,74 @@
+import { useState } from "react";
+import { Selector, SelectorValue } from "./Selector";
 import { defaultValues } from "../../data/defaultValues";
-import { Selector } from "./Selector";
 
 export const Board = () => {
+  // Estado general del tablero: todos los selectores
+  const [valueBoard, setValueBoard] = useState(defaultValues);
+
+  // Funcion que sirve para actualizar el estado general del tablero, recibe el selector que se acaba de actualizar
+  const handleChange = (selectorValueUpdated: SelectorValue): void => {
+    const updatedValueBoard = {
+      // se crea una copia del estado actual y asi mantengo los valores anteriores
+      ...valueBoard,
+      // se sobreescribe el valor para el id del selector actualizado, solo el que cambio
+      [selectorValueUpdated.id]: selectorValueUpdated,
+    };
+    setValueBoard(updatedValueBoard);
+
+    // TODO: escribir una funcion que verifique si se seleccionaron los casilleros: A1, A2, A3, A4
+  };
+
   return (
     <div className="relative rounded-xl overflow-auto p-8">
       <div className="grid grid-cols-7 gap-4 font-mono text-center font-bold leading-6 bg-gray-100 rounded-lg">
-        <Selector value={defaultValues.selectorA1} />
-        <Selector value={defaultValues.selectorA2} />
-        <Selector value={defaultValues.selectorA3} />
-        <Selector value={defaultValues.selectorA4} />
-        <Selector value={defaultValues.selectorA5} />
-        <Selector value={defaultValues.selectorA6} />
-        <Selector value={defaultValues.selectorA7} />
+        <Selector value={valueBoard.selectorA1} onChange={handleChange} />
+        <Selector value={valueBoard.selectorA2} onChange={handleChange} />
+        <Selector value={valueBoard.selectorA3} onChange={handleChange} />
+        <Selector value={valueBoard.selectorA4} onChange={handleChange} />
+        <Selector value={valueBoard.selectorA5} onChange={handleChange} />
+        <Selector value={valueBoard.selectorA6} onChange={handleChange} />
+        <Selector value={valueBoard.selectorA7} onChange={handleChange} />
 
-        <Selector value={defaultValues.selectorB1} />
-        <Selector value={defaultValues.selectorB2} />
-        <Selector value={defaultValues.selectorB3} />
-        <Selector value={defaultValues.selectorB4} />
-        <Selector value={defaultValues.selectorB5} />
-        <Selector value={defaultValues.selectorB6} />
-        <Selector value={defaultValues.selectorB7} />
+        <Selector value={valueBoard.selectorB1} onChange={handleChange} />
+        <Selector value={valueBoard.selectorB2} onChange={handleChange} />
+        <Selector value={valueBoard.selectorB3} onChange={handleChange} />
+        <Selector value={valueBoard.selectorB4} onChange={handleChange} />
+        <Selector value={valueBoard.selectorB5} onChange={handleChange} />
+        <Selector value={valueBoard.selectorB6} onChange={handleChange} />
+        <Selector value={valueBoard.selectorB7} onChange={handleChange} />
 
-        <Selector value={defaultValues.selectorC1} />
-        <Selector value={defaultValues.selectorC2} />
-        <Selector value={defaultValues.selectorC3} />
-        <Selector value={defaultValues.selectorC4} />
-        <Selector value={defaultValues.selectorC5} />
-        <Selector value={defaultValues.selectorC6} />
-        <Selector value={defaultValues.selectorC7} />
+        <Selector value={valueBoard.selectorC1} onChange={handleChange} />
+        <Selector value={valueBoard.selectorC2} onChange={handleChange} />
+        <Selector value={valueBoard.selectorC3} onChange={handleChange} />
+        <Selector value={valueBoard.selectorC4} onChange={handleChange} />
+        <Selector value={valueBoard.selectorC5} onChange={handleChange} />
+        <Selector value={valueBoard.selectorC6} onChange={handleChange} />
+        <Selector value={valueBoard.selectorC7} onChange={handleChange} />
 
-        <Selector value={defaultValues.selectorD1} />
-        <Selector value={defaultValues.selectorD2} />
-        <Selector value={defaultValues.selectorD3} />
-        <Selector value={defaultValues.selectorD4} />
-        <Selector value={defaultValues.selectorD5} />
-        <Selector value={defaultValues.selectorD6} />
-        <Selector value={defaultValues.selectorD7} />
+        <Selector value={valueBoard.selectorD1} onChange={handleChange} />
+        <Selector value={valueBoard.selectorD2} onChange={handleChange} />
+        <Selector value={valueBoard.selectorD3} onChange={handleChange} />
+        <Selector value={valueBoard.selectorD4} onChange={handleChange} />
+        <Selector value={valueBoard.selectorD5} onChange={handleChange} />
+        <Selector value={valueBoard.selectorD6} onChange={handleChange} />
+        <Selector value={valueBoard.selectorD7} onChange={handleChange} />
 
-        <Selector value={defaultValues.selectorF1} />
-        <Selector value={defaultValues.selectorF2} />
-        <Selector value={defaultValues.selectorF3} />
-        <Selector value={defaultValues.selectorF4} />
-        <Selector value={defaultValues.selectorF5} />
-        <Selector value={defaultValues.selectorF6} />
-        <Selector value={defaultValues.selectorF7} />
+        <Selector value={valueBoard.selectorF1} onChange={handleChange} />
+        <Selector value={valueBoard.selectorF2} onChange={handleChange} />
+        <Selector value={valueBoard.selectorF3} onChange={handleChange} />
+        <Selector value={valueBoard.selectorF4} onChange={handleChange} />
+        <Selector value={valueBoard.selectorF5} onChange={handleChange} />
+        <Selector value={valueBoard.selectorF6} onChange={handleChange} />
+        <Selector value={valueBoard.selectorF7} onChange={handleChange} />
 
-        <Selector value={defaultValues.selectorG1} />
-        <Selector value={defaultValues.selectorG2} />
-        <Selector value={defaultValues.selectorG3} />
-        <Selector value={defaultValues.selectorG4} />
-        <Selector value={defaultValues.selectorG5} />
-        <Selector value={defaultValues.selectorG6} />
-        <Selector value={defaultValues.selectorG7} />
+        <Selector value={valueBoard.selectorG1} onChange={handleChange} />
+        <Selector value={valueBoard.selectorG2} onChange={handleChange} />
+        <Selector value={valueBoard.selectorG3} onChange={handleChange} />
+        <Selector value={valueBoard.selectorG4} onChange={handleChange} />
+        <Selector value={valueBoard.selectorG5} onChange={handleChange} />
+        <Selector value={valueBoard.selectorG6} onChange={handleChange} />
+        <Selector value={valueBoard.selectorG7} onChange={handleChange} />
       </div>
     </div>
   );
