@@ -25,9 +25,9 @@ export const Selector = (props: Props) => {
   let bgColor = `bg-fuchsia-200 hover:bg-fuchsia-300`;
   if (value.selected) {
     if (value.color === "blue") {
-      bgColor = `bg-blue-400`;
+      bgColor = `bg-blue-400 border-2 border-black border-solid`;
     } else {
-      bgColor = `bg-red-600`;
+      bgColor = `bg-red-600 border-2 border-black border-solid`;
     }
   }
 
