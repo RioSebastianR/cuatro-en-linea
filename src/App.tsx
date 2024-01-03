@@ -1,17 +1,21 @@
+import { Flowbite } from "flowbite-react";
+
 import { Main } from "./components/Main";
-import { Navbar } from "./components/Navbar";
 import { Content } from "./components/Content";
+import { Sidebar } from "./components/Sidebar";
 
 import "./App.css";
 
 function App() {
   return (
-    <Main>
-      <>
-        <Navbar />
-        <Content />
-      </>
-    </Main>
+    <Flowbite>
+      <Main>
+        <>
+          <Sidebar />
+          <Content />
+        </>
+      </Main>
+    </Flowbite>
   );
 }
 
