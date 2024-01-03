@@ -7,6 +7,18 @@ export const Board = () => {
   const [valueBoard, setValueBoard] = useState(defaultValues);
 
   // Funcion que sirve para actualizar el estado general del tablero, recibe el selector que se acaba de actualizar
+  const isAWinner = (selectorValueUpdated: SelectorValue): boolean => {
+    if (
+      valueBoard.selectorA1.selected &&
+      valueBoard.selectorA2.selected &&
+      valueBoard.selectorA3.selected &&
+      valueBoard.selectorA4.selected
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   const handleChange = (selectorValueUpdated: SelectorValue): void => {
     const updatedValueBoard = {
       // se crea una copia del estado actual y asi mantengo los valores anteriores
@@ -15,8 +27,12 @@ export const Board = () => {
       [selectorValueUpdated.id]: selectorValueUpdated,
     };
     setValueBoard(updatedValueBoard);
-
     // TODO: escribir una funcion que verifique si se seleccionaron los casilleros: A1, A2, A3, A4
+    const result = isAWinner(selectorValueUpdated);
+    console.log(result);
+    if (result) {
+      alert("Has ganado ..!!");
+    }
   };
 
   return (
