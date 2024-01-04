@@ -1,6 +1,8 @@
 export interface SelectorValue {
   id: string;
   selected: boolean;
+  row: number;
+  column: number;
   color?: "blue" | "red";
 }
 
@@ -13,6 +15,8 @@ export const Selector = ({ value, onChange }: Props) => {
   const handleClick = () => {
     onChange({
       id: value.id,
+      row: value.row,
+      column: value.column,
       selected: true,
       color: "red",
     });
