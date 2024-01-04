@@ -29,10 +29,12 @@ export const Selector = ({ value, onChange }: Props) => {
     }
   }
 
+  const pendingStatus = value.selected ? "" : `animate-pulse`;
+
   return (
     <div
       id={value.id}
-      className={`rounded-full shadow-lg md:w-24 md:h-24 w-12 h-12 ${bgColor}`}
+      className={`${pendingStatus} rounded-full shadow-lg md:w-24 md:h-24 w-12 h-12 ${bgColor}`}
       onClick={handleClick}
     ></div>
   );

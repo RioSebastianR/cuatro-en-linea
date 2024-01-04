@@ -1,7 +1,14 @@
+import { useSpring, animated } from "@react-spring/web";
+
 import { Board } from "./board/Board";
 // import { Navbar } from "./../components/Navbar";
 
 export const Content = () => {
+  const springs = useSpring({
+    from: { y: -500 },
+    to: { y: 0 },
+  });
+
   return (
     <>
       <main>
@@ -11,7 +18,13 @@ export const Content = () => {
         <div className="not-prose relative bg-gray-100 rounded-xl overflow-hidden"> */}
           {/* <div className="p-4 sm:ml-64"> */}
           <div className="p-2 md:p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-            <Board />
+            <animated.div
+              style={{
+                ...springs,
+              }}
+            >
+              <Board />
+            </animated.div>
           </div>
         </div>
       </main>
