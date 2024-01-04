@@ -7,13 +7,27 @@ export const Board = () => {
   const [board, setBoard] = useState(defaultValues);
 
   // Funcion que sirve para actualizar el estado general del tablero, recibe el selector que se acaba de actualizar
+
   const isAWinner = useMemo((): boolean => {
-    if (
+    const isAWinnnerHorizontal =
       board.selectorA1.selected &&
       board.selectorA2.selected &&
       board.selectorA3.selected &&
-      board.selectorA4.selected
-    ) {
+      board.selectorA4.selected;
+
+    const isAWinnerVertical =
+      board.selectorA1.selected &&
+      board.selectorB1.selected &&
+      board.selectorC1.selected &&
+      board.selectorD1.selected;
+
+    const isAWinnerDiagonal =
+      board.selectorA1.selected &&
+      board.selectorB2.selected &&
+      board.selectorC3.selected &&
+      board.selectorD4.selected;
+
+    if (isAWinnnerHorizontal || isAWinnerVertical || isAWinnerDiagonal) {
       return true;
     }
     return false;
