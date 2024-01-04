@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Selector, SelectorValue } from "./Selector";
 import { defaultValues } from "../../data/defaultValues";
+import { ToastEmiter } from "../Toast";
 
 export const Board = () => {
   // Estado general del tablero: todos los selectores
@@ -32,7 +33,7 @@ export const Board = () => {
   useEffect(() => {
     console.log(`Is a winner: ${isAWinner}`);
     if (isAWinner) {
-      alert("Has ganado ..!!");
+      ToastEmiter.success("Has ganado ..!!");
     }
   }, [isAWinner]);
 
