@@ -13,6 +13,7 @@ const selectorA2: SelectorValue = {
   column: 2,
   selected: false,
 };
+
 const selectorA3: SelectorValue = {
   id: "selectorA3",
   row: 1,
@@ -26,6 +27,7 @@ const selectorA4: SelectorValue = {
   column: 4,
   selected: false,
 };
+
 const selectorA5: SelectorValue = {
   id: "selectorA5",
   row: 1,
@@ -60,6 +62,7 @@ const selectorB2: SelectorValue = {
   column: 2,
   selected: false,
 };
+
 const selectorB3: SelectorValue = {
   id: "selectorB3",
   row: 2,
@@ -73,6 +76,7 @@ const selectorB4: SelectorValue = {
   column: 4,
   selected: false,
 };
+
 const selectorB5: SelectorValue = {
   id: "selectorB5",
   row: 2,
@@ -86,12 +90,14 @@ const selectorB6: SelectorValue = {
   column: 6,
   selected: false,
 };
+
 const selectorB7: SelectorValue = {
   id: "selectorB7",
   row: 2,
   column: 7,
   selected: false,
 };
+
 const selectorC1: SelectorValue = {
   id: "selectorC1",
   row: 3,
@@ -105,6 +111,7 @@ const selectorC2: SelectorValue = {
   column: 2,
   selected: false,
 };
+
 const selectorC3: SelectorValue = {
   id: "selectorC3",
   row: 3,
@@ -118,6 +125,7 @@ const selectorC4: SelectorValue = {
   column: 4,
   selected: false,
 };
+
 const selectorC5: SelectorValue = {
   id: "selectorC5",
   row: 3,
@@ -131,12 +139,14 @@ const selectorC6: SelectorValue = {
   column: 6,
   selected: false,
 };
+
 const selectorC7: SelectorValue = {
   id: "selectorC7",
   row: 3,
   column: 7,
   selected: false,
 };
+
 const selectorD1: SelectorValue = {
   id: "selectorD1",
   row: 4,
@@ -150,6 +160,7 @@ const selectorD2: SelectorValue = {
   column: 2,
   selected: false,
 };
+
 const selectorD3: SelectorValue = {
   id: "selectorD3",
   row: 4,
@@ -163,6 +174,7 @@ const selectorD4: SelectorValue = {
   column: 4,
   selected: false,
 };
+
 const selectorD5: SelectorValue = {
   id: "selectorD5",
   row: 4,
@@ -176,12 +188,14 @@ const selectorD6: SelectorValue = {
   column: 6,
   selected: false,
 };
+
 const selectorD7: SelectorValue = {
   id: "selectorD7",
   row: 4,
   column: 7,
   selected: false,
 };
+
 const selectorE1: SelectorValue = {
   id: "selectorE1",
   row: 5,
@@ -195,6 +209,7 @@ const selectorE2: SelectorValue = {
   column: 2,
   selected: false,
 };
+
 const selectorE3: SelectorValue = {
   id: "selectorE3",
   row: 5,
@@ -208,6 +223,7 @@ const selectorE4: SelectorValue = {
   column: 4,
   selected: false,
 };
+
 const selectorE5: SelectorValue = {
   id: "selectorE5",
   row: 5,
@@ -221,12 +237,14 @@ const selectorE6: SelectorValue = {
   column: 6,
   selected: false,
 };
+
 const selectorE7: SelectorValue = {
   id: "selectorE7",
   row: 5,
   column: 7,
   selected: false,
 };
+
 const selectorF1: SelectorValue = {
   id: "selectorF1",
   row: 6,
@@ -240,6 +258,7 @@ const selectorF2: SelectorValue = {
   column: 2,
   selected: false,
 };
+
 const selectorF3: SelectorValue = {
   id: "selectorF3",
   row: 6,
@@ -253,6 +272,7 @@ const selectorF4: SelectorValue = {
   column: 4,
   selected: false,
 };
+
 const selectorF5: SelectorValue = {
   id: "selectorF5",
   row: 6,
@@ -266,12 +286,14 @@ const selectorF6: SelectorValue = {
   column: 6,
   selected: false,
 };
+
 const selectorF7: SelectorValue = {
   id: "selectorF7",
   row: 6,
   column: 7,
   selected: false,
 };
+
 const selectorG1: SelectorValue = {
   id: "selectorG1",
   row: 7,
@@ -285,6 +307,7 @@ const selectorG2: SelectorValue = {
   column: 2,
   selected: false,
 };
+
 const selectorG3: SelectorValue = {
   id: "selectorG3",
   row: 7,
@@ -298,6 +321,7 @@ const selectorG4: SelectorValue = {
   column: 4,
   selected: false,
 };
+
 const selectorG5: SelectorValue = {
   id: "selectorG5",
   row: 7,
@@ -311,6 +335,7 @@ const selectorG6: SelectorValue = {
   column: 6,
   selected: false,
 };
+
 const selectorG7: SelectorValue = {
   id: "selectorG7",
   row: 7,

@@ -1,3 +1,5 @@
+import { TurnEnum } from "./TurnEnum";
+
 export interface SelectorValue {
   id: string;
   selected: boolean;
@@ -7,18 +9,19 @@ export interface SelectorValue {
 }
 
 interface Props {
+  turn: TurnEnum;
   value: SelectorValue;
   onChange: (value: SelectorValue) => void;
 }
 
-export const Selector = ({ value, onChange }: Props) => {
+export const Selector = ({ turn, value, onChange }: Props) => {
   const handleClick = () => {
     onChange({
       id: value.id,
       row: value.row,
       column: value.column,
       selected: true,
-      color: "red",
+      color: turn === TurnEnum.A ? "red" : "blue",
     });
 
     console.log(`Se ha seleccionado el casillero ${value.id}, color: red`);
@@ -38,8 +41,8 @@ export const Selector = ({ value, onChange }: Props) => {
   return (
     <div
       id={value.id}
-      className={`${pendingStatus} rounded-full shadow-lg md:w-24 md:h-24 w-12 h-12 ${bgColor}`}
-      onClick={handleClick}
+      className={`mx-auto ${pendingStatus} rounded-full shadow-lg md:w-24 md:h-24 sm:w-16 sm:h-16 w-12 h-12 ${bgColor}`}
+      onClick={value.selected ? undefined : handleClick}
     ></div>
   );
 };
