@@ -29,6 +29,6 @@ export const Selector = ({ turn, value, index, onChange }: Props) => {
     <div
       className={`mx-auto ${pendingStatus} rounded-full shadow-lg md:w-24 md:h-24 sm:w-16 sm:h-16 w-12 h-12 ${bgColor}`}
       onClick={value ? undefined : handleClick}
-    ></div>
+    />
   );
 };

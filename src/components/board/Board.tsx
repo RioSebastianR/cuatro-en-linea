@@ -4,7 +4,7 @@ import { defaultValues } from "../../data/defaultValues";
 import { ToastEmiter } from "../Toast";
 import { TeamEnum } from "./TeamEnum";
 import confetti from "canvas-confetti";
-import { WinnerCombosEnum } from "./WinnerCombosEnum";
+import { WINNER_COMBOS } from "./WinnerCombos";
 
 interface Props {
   turn: TeamEnum;
@@ -16,7 +16,7 @@ export const Board = ({ turn, onChangeTurn }: Props) => {
   const [board, setBoard] = useState(defaultValues);
 
   const isAWinner = useMemo((): boolean => {
-    const isAWinner = WinnerCombosEnum.some((winnerCombo) => {
+    const isAWinner = WINNER_COMBOS.some((winnerCombo) => {
       const [a, b, c, d] = winnerCombo;
       const winnerResult =
         board[a] &&
@@ -45,7 +45,9 @@ export const Board = ({ turn, onChangeTurn }: Props) => {
     if (isAWinner) {
       ToastEmiter.success("Has ganado ..!!");
       confetti();
-      setBoard(defaultValues);
+      setTimeout(() => {
+        setBoard(defaultValues);
+      }, 2000);
     }
   }, [isAWinner]);
 
