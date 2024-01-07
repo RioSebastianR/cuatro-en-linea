@@ -1,14 +1,14 @@
-import { TurnEnum } from "./TurnEnum";
+import { TeamEnum } from "./TeamEnum";
 import Avatar, { genConfig } from "react-nice-avatar";
 
 interface Props {
-  team: TurnEnum;
+  team: TeamEnum;
   isSelected: boolean;
 }
 
 export const CardTeam = ({ team, isSelected }: Props) => {
   const config = genConfig({ mouthStyle: isSelected ? "laugh" : "peace" });
-  const bgColorTeam = team === TurnEnum.A ? "bg-red-600" : "bg-blue-400";
+  const bgColorTeam = team === TeamEnum.A ? "bg-red-600" : "bg-blue-400";
   const bgColor = isSelected ? `${bgColorTeam} animate-pulse` : "";
 
   const textColor = isSelected

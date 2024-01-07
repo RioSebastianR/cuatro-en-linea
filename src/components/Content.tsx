@@ -4,15 +4,15 @@ import { Board } from "./board/Board";
 // import { Navbar } from "./../components/Navbar";
 
 import { useState } from "react";
-import { TurnEnum } from "./board/TurnEnum";
+import { TeamEnum } from "./board/TeamEnum";
 import { CardTeam } from "./board/CardTeam";
 import { DarkThemeToggle } from "flowbite-react";
 
 export const Content = () => {
-  const [turn, setTurn] = useState(TurnEnum.A);
+  const [turn, setTurn] = useState(TeamEnum.A);
 
   const handleChangeTurn = () => {
-    setTurn((turn) => (turn === TurnEnum.A ? TurnEnum.B : TurnEnum.A));
+    setTurn((turn) => (turn === TeamEnum.A ? TeamEnum.B : TeamEnum.A));
   };
 
   const springs = useSpring({
@@ -43,14 +43,14 @@ export const Content = () => {
             </div>
             <div className="flex md:flex-col flex-row gap-6">
               <CardTeam
-                key={TurnEnum.A}
-                isSelected={turn === TurnEnum.A}
-                team={TurnEnum.A}
+                key={TeamEnum.A}
+                isSelected={turn === TeamEnum.A}
+                team={TeamEnum.A}
               />
               <CardTeam
-                key={TurnEnum.B}
-                isSelected={turn === TurnEnum.B}
-                team={TurnEnum.B}
+                key={TeamEnum.B}
+                isSelected={turn === TeamEnum.B}
+                team={TeamEnum.B}
               />
             </div>
           </div>
