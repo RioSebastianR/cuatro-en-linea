@@ -6,17 +6,22 @@ import { Content } from "./components/Content";
 import { ToastContainer } from "./components/Toast";
 
 import "./App.css";
+import { GameProvider } from "./contexts/GameContext";
 
 function App() {
   return (
     <Flowbite>
-      <ToastContainer />
-      <Main>
+      <GameProvider>
         <>
-          {/* <Sidebar /> */}
-          <Content />
+          <ToastContainer />
+          <Main>
+            <>
+              {/* <Sidebar /> */}
+              <Content />
+            </>
+          </Main>
         </>
-      </Main>
+      </GameProvider>
     </Flowbite>
   );
 }

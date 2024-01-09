@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { TeamEnum } from "./TeamEnum";
 import Avatar, { genConfig } from "react-nice-avatar";
+import { GameContext } from "../../contexts/GameContext";
 
 interface Props {
   team: TeamEnum;
@@ -7,8 +9,12 @@ interface Props {
 }
 
 export const CardTeam = ({ team, isSelected }: Props) => {
-  const config = genConfig({ mouthStyle: isSelected ? "laugh" : "peace" });
-  const bgColorTeam = team === TeamEnum.A ? "bg-red-600" : "bg-blue-400";
+  const { winner } = useContext(GameContext);
+  const config = genConfig({ mouthStyle: "peace" });
+  let bgColorTeam = team === TeamEnum.A ? "bg-red-600" : "bg-blue-400";
+  if (winner) {
+    bgColorTeam = winner === TeamEnum.A ? "bg-red-600" : "bg-blue-400";
+  }
   const bgColor = isSelected ? `${bgColorTeam} animate-pulse` : "";
 
   const textColor = isSelected
