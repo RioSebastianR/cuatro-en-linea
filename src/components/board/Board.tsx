@@ -20,6 +20,7 @@ import { HomeGame } from "../HomeGame";
 
 export const Board = () => {
   const {
+    started,
     board,
     currentTurn,
     winner,
@@ -42,6 +43,7 @@ export const Board = () => {
       size: open ? "100%" : "20%",
       background: open ? "white" : "hotpink",
     },
+    onStart: startGame,
   });
 
   const isAWinner = useMemo((): boolean => validateWinner(board), [board]);
@@ -59,15 +61,10 @@ export const Board = () => {
     changeTurn();
   };
 
-  const handleStart = () => {
-    setOpen(true);
-    startGame();
-  };
-
   const transApi = useSpringRef();
   const transition = useTransition(
     open ? board : [],
-    !open
+    started
       ? {}
       : {
           ref: transApi,
@@ -98,7 +95,7 @@ export const Board = () => {
             <animated.div
               style={{ ...rest, width: size, height: size }}
               className={`${styles.container} p-5`}
-              onClick={() => handleStart()}
+              onClick={() => setOpen(true)}
             >
               {!open && (
                 <button className="rounded-lg text-center w-full">

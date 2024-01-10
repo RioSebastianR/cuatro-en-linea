@@ -39,7 +39,8 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
     setModalVisible(false);
     _setBoard(defaultValues);
     setWinner(undefined);
-    _setStarted(false);
+    // TODO: solo deberia marcarse como false si se finaliza la partida y ya no se sigue jugando
+    // _setStarted(false);
   };
 
   const updateBoard = (board: BoardValue[]) => {
