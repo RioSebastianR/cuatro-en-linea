@@ -38,10 +38,10 @@ export const Board = () => {
   const { size, ...rest } = useSpring({
     ref: springApi,
     config: config.stiff,
-    from: { size: "20%", background: "hotpink" },
+    from: { size: "20%", background: "#244e69" },
     to: {
       size: open ? "100%" : "20%",
-      background: open ? "white" : "hotpink",
+      background: open ? "#bab768" : "#9c3202",
     },
     onStart: startGame,
   });
@@ -50,15 +50,18 @@ export const Board = () => {
 
   // Funcion que sirve para actualizar el estado general del tablero, recibe el selector que se acaba de actualizar
   const handleChange = (value: TeamEnum, index: number): void => {
-    const updatedValueBoard = [
-      // se crea una copia del estado actual y asi mantengo los valores anteriores
-      ...board,
-      // se sobreescribe el valor para el id del selector actualizado, solo el que cambio
-    ];
-    updatedValueBoard[index] = { team: value, index };
-    updateBoard(updatedValueBoard);
-    setLastTeamPlayed(currentTurn);
-    changeTurn();
+    const isEmpty = board[index].team === undefined;
+    if (isEmpty) {
+      const updatedValueBoard = [
+        // se crea una copia del estado actual y asi mantengo los valores anteriores
+        ...board,
+        // se sobreescribe el valor para el id del selector actualizado, solo el que cambio
+      ];
+      updatedValueBoard[index] = { team: value, index };
+      updateBoard(updatedValueBoard);
+      setLastTeamPlayed(currentTurn);
+      changeTurn();
+    }
   };
 
   const transApi = useSpringRef();

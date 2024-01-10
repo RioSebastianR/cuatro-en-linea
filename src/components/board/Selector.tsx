@@ -9,9 +9,9 @@ export const Selector = ({ value }: Props) => {
   let bgColor = `bg-fuchsia-200 hover:bg-fuchsia-300`;
   if (value.team) {
     if (value.team === TeamEnum.A) {
-      bgColor = `bg-red-600 border-2 border-black border-solid`;
+      bgColor = `bg-red-600 border-2 border-black border-solid border-double border-8 border-white `;
     } else {
-      bgColor = `bg-blue-400 border-2 border-black border-solid`;
+      bgColor = `bg-blue-400 border-2 border-black border-solid border-double border-8 border-white`;
     }
   }
 
