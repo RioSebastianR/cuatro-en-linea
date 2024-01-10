@@ -19,19 +19,20 @@ export const Board = () => {
     setWinner,
     setLastTeamPlayed,
   } = useContext(GameContext);
+  const [open, set] = useState(false);
 
-  const isAWinner = useMemo((): boolean => {
-    const isAWinner = WINNER_COMBOS.some((winnerCombo) => {
-      const [a, b, c, d] = winnerCombo;
-      const winnerResult =
-        board[a] &&
-        board[a] === board[b] &&
-        board[a] === board[c] &&
-        board[a] === board[d];
-      return winnerResult;
-    });
-    return isAWinner;
-  }, [board]);
+  const springApi = useSpringRef();
+  const { size, ...rest } = useSpring({
+    ref: springApi,
+    config: config.stiff,
+    from: { size: "20%", background: "hotpink" },
+    to: {
+      size: open ? "100%" : "20%",
+      background: open ? "white" : "hotpink",
+    },
+  });
+
+  const isAWinner = useMemo((): boolean => validateWinner(board), [board]);
 
   // Funcion que sirve para actualizar el estado general del tablero, recibe el selector que se acaba de actualizar
   const handleChange = (value: TeamEnum, index: number): void => {
