@@ -24,13 +24,14 @@ export const Board = () => {
     currentTurn,
     winner,
     lastTeamPlayed,
+    startGame,
     updateBoard,
     changeTurn,
     resetGame,
     setWinner,
     setLastTeamPlayed,
   } = useContext(GameContext);
-  const [open, set] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const springApi = useSpringRef();
   const { size, ...rest } = useSpring({
@@ -58,14 +59,24 @@ export const Board = () => {
     changeTurn();
   };
 
+  const handleStart = () => {
+    setOpen(true);
+    startGame();
+  };
+
   const transApi = useSpringRef();
-  const transition = useTransition(open ? board : [], {
-    ref: transApi,
-    trail: 20,
-    from: { opacity: 0, scale: 0 },
-    enter: { opacity: 1, scale: 1 },
-    leave: { opacity: 0, scale: 0 },
-  });
+  const transition = useTransition(
+    open ? board : [],
+    !open
+      ? {}
+      : {
+          ref: transApi,
+          trail: 20,
+          from: { opacity: 0, scale: 0 },
+          enter: { opacity: 1, scale: 1 },
+          leave: { opacity: 0, scale: 0 },
+        }
+  );
 
   // This will orchestrate the two animations above, comment the last arg and it creates a sequence
   useChain([springApi, transApi], [0, open ? 0.1 : 0.6]);
@@ -87,7 +98,7 @@ export const Board = () => {
             <animated.div
               style={{ ...rest, width: size, height: size }}
               className={`${styles.container} p-5`}
-              onClick={() => set(true)}
+              onClick={() => handleStart()}
             >
               {!open && (
                 <button className="rounded-lg text-center w-full">
