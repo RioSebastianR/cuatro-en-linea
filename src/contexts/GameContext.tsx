@@ -1,23 +1,26 @@
 import { createContext, ReactNode, useState } from "react";
 import { TeamEnum } from "../components/board/TeamEnum";
-import { defaultValues } from "../data/defaultValues";
+import { BoardValue, defaultValues } from "../data/defaultValues";
 
 interface GameContextValue {
+  started: boolean;
   winner?: TeamEnum;
   winnerModalVisible: boolean;
-  board: (TeamEnum | null)[];
+  board: BoardValue[];
   currentTurn: TeamEnum;
   lastTeamPlayed?: TeamEnum;
+  startGame(): void;
   changeTurn(): void;
   setWinner(winner?: TeamEnum): void;
-  updateBoard(board: (TeamEnum | null)[]): void;
+  updateBoard(board: BoardValue[]): void;
   resetGame(): void;
   setLastTeamPlayed(team: TeamEnum): void;
 }
 
 export const GameProvider = ({ children }: { children?: ReactNode }) => {
+  const [started, _setStarted] = useState(false);
   const [winner, _setWinner] = useState<TeamEnum | undefined>(undefined);
-  const [board, _setBoard] = useState<(TeamEnum | null)[]>(defaultValues);
+  const [board, _setBoard] = useState<BoardValue[]>(defaultValues);
   const [currentTurn, setCurrentTurn] = useState<TeamEnum>(TeamEnum.A);
   const [lastTeamPlayed, _setLastTeamPlayed] = useState<TeamEnum | undefined>(
     undefined
@@ -28,13 +31,18 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
     _setWinner(winnerUpdated);
   };
 
+  const startGame = () => {
+    _setStarted(true);
+  };
+
   const resetGame = () => {
     setModalVisible(false);
     _setBoard(defaultValues);
     setWinner(undefined);
+    _setStarted(false);
   };
 
-  const updateBoard = (board: (TeamEnum | null)[]) => {
+  const updateBoard = (board: BoardValue[]) => {
     _setBoard(board);
   };
 
@@ -51,11 +59,13 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
   return (
     <GameContext.Provider
       value={{
+        started,
         winner,
         winnerModalVisible,
         board,
         currentTurn,
         lastTeamPlayed,
+        startGame,
         changeTurn,
         setWinner,
         updateBoard,
