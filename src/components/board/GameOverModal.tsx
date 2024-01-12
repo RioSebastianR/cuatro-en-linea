@@ -41,14 +41,16 @@ export const GameOverModal = ({ children, isVisible, onReset }: Props) => {
 
           <div className="mt-8">{children}</div>
 
-          <p className="mb-4 text-gray-500 dark:text-gray-300">Has ganado!</p>
+          <p className="mb-4 text-gray-500 dark:text-gray-300 my-4">
+            Has ganado!
+          </p>
           <div className="flex justify-center items-center space-x-4">
             <button
               type="button"
-              className="py-2 px-3 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-900"
+              className="py-2 px-3 text-sm text-center text-white bg-green-600 rounded-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-900 font-bungee"
               onClick={onReset}
             >
-              Deseas jugar otra vez?
+              Otra vez!
             </button>
           </div>
         </div>

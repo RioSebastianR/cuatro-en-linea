@@ -38,10 +38,10 @@ export const Board = () => {
   const { size, ...rest } = useSpring({
     ref: springApi,
     config: config.stiff,
-    from: { size: "20%", background: "#244e69" },
+    from: { size: "30%", background: "white" },
     to: {
-      size: open ? "100%" : "20%",
-      background: open ? "#bab768" : "#9c3202",
+      size: open ? "100%" : "30%",
+      background: open ? "white" : "hotpink",
     },
     onStart: startGame,
   });
@@ -92,8 +92,10 @@ export const Board = () => {
   return (
     <>
       <div className="relative rounded-xl overflow-auto p-2 md:p-6">
-        <div className={`${styles.wrapper} rounded-lg`}>
-          <div className="flex flex-col w-full justify-center text-center items-center">
+        <div
+          className={`${styles.wrapper} rounded-lg bg-gradient-to-r from-blue-200 to-cyan-200`}
+        >
+          <div className="flex flex-col w-full justify-center text-center items-center ">
             {!open && <HomeGame />}
             <animated.div
               style={{ ...rest, width: size, height: size }}
@@ -101,7 +103,7 @@ export const Board = () => {
               onClick={() => setOpen(true)}
             >
               {!open && (
-                <button className="rounded-lg text-center w-full">
+                <button className="rounded-lg text-center w-full font-bungee ">
                   Comenzar Juego!
                 </button>
               )}

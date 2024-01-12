@@ -25,6 +25,7 @@ export const Content = () => {
         <div className="flex md:flex-row flex-col w-full">
           <div className="mx-auto md:basis-3/4 basis-4/4 p-6 md:p-6 sm:px-6 lg:px-8 text-white">
             {/* <Navbar /> */}
+
             <Board />
           </div>
           {started && <Sideboard />}

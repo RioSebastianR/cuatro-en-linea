@@ -2,9 +2,9 @@ import { AvatarOption } from "./AvatarOption";
 
 export const AvatarSelector = () => {
   return (
-    <div className="bg-white sm:py-12 mt-12 mb-6">
+    <div className="bg-white sm:py-12 mt-12 mb-6 rounded-lg">
       <div className="w-full">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl font-bungee-shade">
           Elige tu Avatar ganador!
         </h2>
       </div>

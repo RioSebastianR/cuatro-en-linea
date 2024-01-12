@@ -27,7 +27,7 @@ export const CardTeam = ({ team, isSelected }: Props) => {
     >
       <div className="flex flex-col items-center p-4 md:p-8">
         <Avatar style={{ width: "6rem", height: "6rem" }} {...config} />
-        <h5 className="mb-1 mt-2 text-xl font-medium text-gray-900 dark:text-white">
+        <h5 className="mb-1 mt-2 pt-2 text-xl font-medium text-gray-900 dark:text-white font-bungee">
           Bonnie Green
         </h5>
         <span className={`text-sm ${textColor}`}>Team: {team}</span>

@@ -10,6 +10,9 @@ export const Sideboard = () => {
   return (
     <div className="mx-auto md:basis-1/4 basis-4/4 p-6 md:p-6 sm:px-6 lg:px-8 text-white">
       <div className="m-6 flex justify-end">
+        <h1 className="w-full text-center text-2xl font-bungee-spice">
+          4 en linea
+        </h1>
         <DarkThemeToggle />
       </div>
       {winner === undefined && (
