@@ -10,6 +10,7 @@ interface GameContextValue {
   currentTurn: TeamEnum;
   lastTeamPlayed?: TeamEnum;
   startGame(): void;
+  stopGame(): void;
   changeTurn(): void;
   setWinner(winner?: TeamEnum): void;
   updateBoard(board: BoardValue[]): void;
@@ -33,6 +34,12 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
 
   const startGame = () => {
     _setStarted(true);
+  };
+
+  const stopGame = () => {
+    _setStarted(false);
+    _setWinner(undefined);
+    setCurrentTurn(TeamEnum.A);
   };
 
   const resetGame = () => {
@@ -67,6 +74,7 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
         currentTurn,
         lastTeamPlayed,
         startGame,
+        stopGame,
         changeTurn,
         setWinner,
         updateBoard,

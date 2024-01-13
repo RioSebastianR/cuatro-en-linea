@@ -1,11 +1,11 @@
 import { CardTeam } from "./CardTeam";
-import { DarkThemeToggle } from "flowbite-react";
+import { Button, DarkThemeToggle } from "flowbite-react";
 import { TeamEnum } from "./TeamEnum";
 import { useContext } from "react";
 import { GameContext } from "../../contexts/GameContext";
 
 export const Sideboard = () => {
-  const { currentTurn, winner } = useContext(GameContext);
+  const { currentTurn, winner, stopGame } = useContext(GameContext);
 
   return (
     <div className="mx-auto md:basis-1/4 basis-4/4 p-6 md:p-6 sm:px-6 lg:px-8 text-white">
@@ -29,6 +29,13 @@ export const Sideboard = () => {
           />
         </div>
       )}
+      <Button
+        gradientDuoTone="tealToLime"
+        className="mt-12 font-bungee"
+        onClick={stopGame}
+      >
+        Reiniciar Juego
+      </Button>
     </div>
   );
 };

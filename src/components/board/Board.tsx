@@ -33,6 +33,7 @@ export const Board = () => {
     setLastTeamPlayed,
   } = useContext(GameContext);
   const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const springApi = useSpringRef();
   const { size, ...rest } = useSpring({
@@ -89,6 +90,13 @@ export const Board = () => {
     }
   }, [isAWinner, lastTeamPlayed, setWinner]);
 
+  useEffect(() => {
+    setOpenModal(winner !== undefined);
+    if (winner === undefined && !started) {
+      setOpen(false);
+    }
+  }, [started, winner]);
+
   return (
     <>
       <div className="relative rounded-xl overflow-auto p-2 md:p-6">
@@ -124,7 +132,7 @@ export const Board = () => {
         </div>
       </div>
 
-      <GameOverModal isVisible={winner !== undefined} onReset={resetGame}>
+      <GameOverModal show={openModal} onReset={resetGame}>
         <CardTeamWinner />
       </GameOverModal>
     </>
