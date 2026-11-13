@@ -8,17 +8,17 @@ interface Props {
 
 export const GameOverModal = ({ show, children, onReset }: Props) => {
   return (
-    <Modal size="sm" position="top-right" show={show} onClose={onReset}>
+    <Modal size="md" position="top-right" show={show} onClose={onReset}>
       <Modal.Header>
         <span className="font-bungee-spice">Has ganado!</span>
       </Modal.Header>
       <Modal.Body>
         {children}
-        <div className="mt-6 flex justify-end text-sm font-medium text-gray-500 dark:text-gray-300">
+        <div className="mt-6 flex justify-center text-sm font-medium text-gray-500 dark:text-gray-300">
           <Button
             onClick={onReset}
             gradientDuoTone="tealToLime"
-            className="font-bungee"
+            className="font-bungee "
           >
             Otra vez!
           </Button>
