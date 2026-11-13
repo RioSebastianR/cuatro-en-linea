@@ -9,6 +9,9 @@ export const validateWinner = (board: BoardValue[]): boolean => {
       board[a]?.team === board[b]?.team &&
       board[a]?.team === board[c]?.team &&
       board[a]?.team === board[d]?.team;
+    if (winnerResult) {
+      console.log("Winner combo is: ", [a, b, c, d]);
+    }
     return winnerResult;
   });
 };
