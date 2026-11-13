@@ -18,15 +18,15 @@ const getHorizontalWinners = (): number[][] => {
     // ROW 1
     ...WINNER_ROW_COMBOS,
     // ROW 2
-    ...getRowValidator(6),
+    ...getRowValidator(7),
     // ROW 3
-    ...getRowValidator(6 * 2),
+    ...getRowValidator(7 * 2),
     // ROW 4
-    ...getRowValidator(6 * 3),
+    ...getRowValidator(7 * 3),
     // ROW 5
-    ...getRowValidator(6 * 4),
+    ...getRowValidator(7 * 4),
     // ROW 6
-    ...getRowValidator(6 * 5),
+    ...getRowValidator(7 * 5),
   ];
 };
 
