@@ -25,7 +25,7 @@ export const Selector = ({ value }: Props) => {
         <div className="flex justify-center items-center h-full w-full">
           <span className="text-white font-bold text-2xl">
             {value.isWinnerCombo && (
-              <span className="text-yellow-400 text-2xl font-bold">
+              <span className="text-yellow-200 text-2xl font-bold animate-pulse">
                 {value.team === TeamEnum.A ? "A" : "B"}
               </span>
             )}

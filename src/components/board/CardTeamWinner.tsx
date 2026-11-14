@@ -13,7 +13,11 @@ export const CardTeamWinner = () => {
       className={`w-full max-w-sm ${bgColorTeam} text-white border border-gray-200 rounded-lg shadow `}
     >
       <div className="flex flex-col items-center p-4 md:p-8">
-        <Avatar style={{ width: "6rem", height: "6rem" }} {...config} />
+        <Avatar
+          style={{ width: "6rem", height: "6rem" }}
+          {...config}
+          className="animate-spin"
+        />
         <h5 className="mb-1 mt-2 pt-2 text-l font-medium text-gray-900 dark:text-white font-bungee">
           Player, eso fue epico!
         </h5>
