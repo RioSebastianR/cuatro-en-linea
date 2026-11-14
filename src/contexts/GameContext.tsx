@@ -24,7 +24,7 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
   const [board, _setBoard] = useState<BoardValue[]>(defaultValues);
   const [currentTurn, setCurrentTurn] = useState<TeamEnum>(TeamEnum.A);
   const [lastTeamPlayed, _setLastTeamPlayed] = useState<TeamEnum | undefined>(
-    undefined
+    undefined,
   );
   const [winnerModalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -56,7 +56,7 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
 
   const changeTurn = () => {
     setCurrentTurn((currentTurn) =>
-      currentTurn === TeamEnum.A ? TeamEnum.B : TeamEnum.A
+      currentTurn === TeamEnum.A ? TeamEnum.B : TeamEnum.A,
     );
   };
 
@@ -88,5 +88,5 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
 };
 
 export const GameContext = createContext<GameContextValue>(
-  {} as GameContextValue
+  {} as GameContextValue,
 );

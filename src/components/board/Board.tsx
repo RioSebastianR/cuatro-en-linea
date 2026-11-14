@@ -1,5 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from "react";
-import { Selector } from "./Selector";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { TeamEnum } from "./TeamEnum";
 import confetti from "canvas-confetti";
 import { GameOverModal } from "./GameOverModal";
@@ -17,6 +16,9 @@ import {
 import styles from "./styles.module.css";
 import { validateWinner } from "../../helpers/GameValidator";
 import { HomeGame } from "../HomeGame";
+import { columns, headerSelectors } from "../../data/defaultValues";
+import { SelectorColumn } from "./SelectorColumn";
+import { BoardGrid } from "./BoardGrid";
 
 export const Board = () => {
   const {
@@ -34,6 +36,7 @@ export const Board = () => {
   } = useContext(GameContext);
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const isAWinner = useMemo((): number[] => validateWinner(board), [board]);
 
   const springApi = useSpringRef();
   const { size, ...rest } = useSpring({
@@ -47,48 +50,58 @@ export const Board = () => {
     onStart: startGame,
   });
 
-  const isAWinner = useMemo((): boolean => validateWinner(board), [board]);
-
   // Funcion que sirve para actualizar el estado general del tablero, recibe el selector que se acaba de actualizar
   const handleChange = (value: TeamEnum, index: number): void => {
-    const isEmpty = board[index].team === undefined;
-    if (isEmpty) {
-      const updatedValueBoard = [
-        // se crea una copia del estado actual y asi mantengo los valores anteriores
-        ...board,
-        // se sobreescribe el valor para el id del selector actualizado, solo el que cambio
-      ];
-      updatedValueBoard[index] = { team: value, index };
-      updateBoard(updatedValueBoard);
-      setLastTeamPlayed(currentTurn);
-      changeTurn();
-    }
+    columns.forEach((column) => {
+      const columnValues = board.filter((cell) => cell.column === column);
+      const emptyCells = columnValues.filter((cell) => cell.team === undefined);
+      if (emptyCells.length > 0) {
+        const lastEmptyCell = emptyCells[emptyCells.length - 1];
+        if (lastEmptyCell.column === index) {
+          const updatedValueBoard = [...board];
+          updatedValueBoard[
+            lastEmptyCell.row * columns.length + lastEmptyCell.column
+          ] = {
+            team: value,
+            row: lastEmptyCell.row,
+            column: lastEmptyCell.column,
+          };
+          updateBoard(updatedValueBoard);
+          setLastTeamPlayed(currentTurn);
+          changeTurn();
+        }
+      }
+    });
   };
 
-  const transApi = useSpringRef();
-  const transition = useTransition(
-    open ? board : [],
+  const headerApi = useSpringRef();
+  const transitionSelectorColumn = useTransition(
+    open ? headerSelectors : [],
     started
       ? {}
       : {
-          ref: transApi,
+          ref: headerApi,
           trail: 20,
           from: { opacity: 0, scale: 0 },
           enter: { opacity: 1, scale: 1 },
           leave: { opacity: 0, scale: 0 },
-        }
+        },
   );
 
+  const handleClickStartGame = useCallback(() => {
+    // resetGame();
+    setOpen(true);
+  }, []);
+
   // This will orchestrate the two animations above, comment the last arg and it creates a sequence
-  useChain([springApi, transApi], [0, open ? 0.1 : 0.6]);
+  useChain([springApi], [0, open ? 0.1 : 0.6]);
 
   useEffect(() => {
-    console.log(`Is a winner: ${isAWinner}`);
-    if (isAWinner && lastTeamPlayed) {
+    if (isAWinner?.length > 0 && lastTeamPlayed) {
       confetti();
       setWinner(lastTeamPlayed);
     }
-  }, [isAWinner, lastTeamPlayed, setWinner]);
+  }, [lastTeamPlayed, setWinner, isAWinner]);
 
   useEffect(() => {
     setOpenModal(winner !== undefined);
@@ -99,7 +112,7 @@ export const Board = () => {
 
   return (
     <>
-      <div className="relative rounded-xl overflow-auto p-2 md:p-6">
+      <div className="relative rounded-xl overflow-auto p-2 md:p-3">
         <div
           className={`${styles.wrapper} rounded-lg bg-gradient-to-r from-blue-200 to-cyan-200`}
         >
@@ -107,26 +120,31 @@ export const Board = () => {
             {!open && <HomeGame />}
             <animated.div
               style={{ ...rest, width: size, height: size }}
-              className={`${styles.container} p-5`}
-              onClick={() => setOpen(true)}
+              className={`${styles.container}`}
+              onClick={handleClickStartGame}
             >
               {!open && (
-                <button className="rounded-lg text-center w-full font-bungee ">
+                <button className="rounded-lg text-center w-full font-bungee py-3">
                   Comenzar Juego!
                 </button>
               )}
-              <div className="grid grid-cols-7 gap-3 font-mono text-center font-bold leading-6">
-                {transition((style, value, _, index) => {
-                  return (
-                    <animated.div
-                      style={{ ...style }}
-                      onClick={() => handleChange(currentTurn, index)}
-                    >
-                      <Selector value={value} />
-                    </animated.div>
-                  );
-                })}
-              </div>
+              {open && (
+                <>
+                  <div className="grid grid-cols-7 gap-1 font-mono text-center font-bold leading-6 bg-gradient-to-r from-blue-200 to-cyan-200 pb-4">
+                    {transitionSelectorColumn((style, value, _, index) => {
+                      return (
+                        <animated.div
+                          style={{ ...style }}
+                          onClick={() => handleChange(currentTurn, index)}
+                        >
+                          <SelectorColumn index={index} />
+                        </animated.div>
+                      );
+                    })}
+                  </div>
+                  <BoardGrid board={board} winnerCombo={isAWinner} />
+                </>
+              )}
             </animated.div>
           </div>
         </div>
