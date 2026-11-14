@@ -19,7 +19,19 @@ export const Selector = ({ value }: Props) => {
 
   return (
     <div
-      className={`mx-auto ${pendingStatus} rounded-full shadow-lg md:w-24 md:h-24 sm:w-16 sm:h-16 w-12 h-12 ${bgColor}`}
-    />
+      className={`mx-auto ${pendingStatus} rounded-full shadow-lg md:w-[86px] md:h-[86px] sm:w-16 sm:h-16 w-12 h-12 ${bgColor} my-2 text-sm`}
+    >
+      {value.team && (
+        <div className="flex justify-center items-center h-full w-full">
+          <span className="text-white font-bold text-2xl">
+            {value.isWinnerCombo && (
+              <span className="text-yellow-400 text-2xl font-bold">
+                {value.team === TeamEnum.A ? "A" : "B"}
+              </span>
+            )}
+          </span>
+        </div>
+      )}
+    </div>
   );
 };

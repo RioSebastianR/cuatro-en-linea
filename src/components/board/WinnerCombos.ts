@@ -3,7 +3,6 @@ const WINNER_ROW_COMBOS: number[][] = [
   [1, 2, 3, 4],
   [2, 3, 4, 5],
   [3, 4, 5, 6],
-  [4, 5, 6, 7],
 ];
 
 const getRowValidator = (add: number): number[][] => {
@@ -134,3 +133,11 @@ export const WINNER_COMBOS = [
   ...getVerticalWinners(),
   ...getDiagonalWinners(),
 ];
+
+export const transformNumberToRowColumn = (
+  index: number,
+): { row: number; column: number } => {
+  const row = Math.floor(index / 7);
+  const column = index % 7;
+  return { row, column };
+};
