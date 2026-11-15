@@ -10,11 +10,12 @@ interface GameContextValue {
   currentTurn: TeamEnum;
   lastTeamPlayed?: TeamEnum;
   startGame(): void;
+  clearGameState(): void;
   stopGame(): void;
+  resetGame(): void;
   changeTurn(): void;
   setWinner(winner?: TeamEnum): void;
   updateBoard(board: BoardValue[]): void;
-  resetGame(): void;
   setLastTeamPlayed(team: TeamEnum): void;
 }
 
@@ -32,22 +33,25 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
     _setWinner(winnerUpdated);
   };
 
+  const clearGameState = () => {
+    setModalVisible(false);
+    _setBoard(defaultValues);
+    _setWinner(undefined);
+    setCurrentTurn(TeamEnum.A);
+    setLastTeamPlayed(undefined);
+  };
+
   const startGame = () => {
     _setStarted(true);
   };
 
   const stopGame = () => {
+    clearGameState();
     _setStarted(false);
-    _setWinner(undefined);
-    setCurrentTurn(TeamEnum.A);
   };
 
   const resetGame = () => {
-    setModalVisible(false);
-    _setBoard(defaultValues);
-    setWinner(undefined);
-    // TODO: solo deberia marcarse como false si se finaliza la partida y ya no se sigue jugando
-    // _setStarted(false);
+    clearGameState();
   };
 
   const updateBoard = (board: BoardValue[]) => {
@@ -80,6 +84,7 @@ export const GameProvider = ({ children }: { children?: ReactNode }) => {
         updateBoard,
         resetGame,
         setLastTeamPlayed,
+        clearGameState,
       }}
     >
       {children}
