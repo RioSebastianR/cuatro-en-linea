@@ -36,6 +36,7 @@ export const Board = () => {
   } = useContext(GameContext);
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [disableSelector, setDisableSelector] = useState(false);
   const isAWinner = useMemo((): number[] => validateWinner(board), [board]);
 
   const springApi = useSpringRef();
@@ -52,6 +53,9 @@ export const Board = () => {
 
   // Funcion que sirve para actualizar el estado general del tablero, recibe el selector que se acaba de actualizar
   const handleChange = (value: TeamEnum, index: number): void => {
+    if (disableSelector) {
+      return;
+    }
     columns.forEach((column) => {
       const columnValues = board.filter((cell) => cell.column === column);
       const emptyCells = columnValues.filter((cell) => cell.team === undefined);
@@ -73,6 +77,7 @@ export const Board = () => {
             active: true,
           };
           updateBoard(updatedValueBoard);
+          setDisableSelector(true);
 
           setTimeout(() => {
             const updatedValueBoard = [...board];
@@ -81,6 +86,7 @@ export const Board = () => {
               active: false,
             };
             updateBoard(updatedValueBoard);
+            setDisableSelector(false);
           }, 1000);
 
           setLastTeamPlayed(currentTurn);
