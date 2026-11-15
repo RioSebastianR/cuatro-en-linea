@@ -16,14 +16,15 @@ export const Selector = ({ value }: Props) => {
   }
 
   const pendingStatus = value.team ? "" : `animate-pulse`;
+  const size = "md:w-[86px] md:h-[86px] sm:w-16 sm:h-16 w-12 h-12";
 
   return (
     <div
-      className={`mx-auto ${pendingStatus} rounded-full shadow-lg md:w-[86px] md:h-[86px] sm:w-16 sm:h-16 w-12 h-12 ${bgColor} my-2 text-sm`}
+      className={`mx-auto ${pendingStatus} rounded-full shadow-lg ${bgColor} my-2 text-sm ${size} ${value?.active ? "active" : ""}`}
     >
       {value.team && (
         <div className="flex justify-center items-center h-full w-full">
-          <span className="text-white font-bold text-2xl">
+          <span className="text-white font-bold">
             {value.isWinnerCombo && (
               <span className="text-yellow-200 text-2xl font-bold animate-pulse">
                 {value.team === TeamEnum.A ? "A" : "B"}

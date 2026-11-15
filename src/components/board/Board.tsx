@@ -59,14 +59,30 @@ export const Board = () => {
         const lastEmptyCell = emptyCells[emptyCells.length - 1];
         if (lastEmptyCell.column === index) {
           const updatedValueBoard = [...board];
-          updatedValueBoard[
-            lastEmptyCell.row * columns.length + lastEmptyCell.column
-          ] = {
+
+          const indexToUpdate =
+            lastEmptyCell.row * columns.length + lastEmptyCell.column;
+          const commonValues = {
             team: value,
             row: lastEmptyCell.row,
             column: lastEmptyCell.column,
           };
+
+          updatedValueBoard[indexToUpdate] = {
+            ...commonValues,
+            active: true,
+          };
           updateBoard(updatedValueBoard);
+
+          setTimeout(() => {
+            const updatedValueBoard = [...board];
+            updatedValueBoard[indexToUpdate] = {
+              ...commonValues,
+              active: false,
+            };
+            updateBoard(updatedValueBoard);
+          }, 1000);
+
           setLastTeamPlayed(currentTurn);
           changeTurn();
         }

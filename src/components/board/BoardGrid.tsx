@@ -34,7 +34,6 @@ export const BoardGrid = ({
     if (winnerCombo) {
       winnerCombo.forEach((number) => {
         const { row, column } = transformNumberToRowColumn(number);
-        console.log("It should be updated", row, column);
         updatedBoard[row * columns.length + column] = {
           ...updatedBoard[row * columns.length + column],
           isWinnerCombo: true,
@@ -55,7 +54,7 @@ export const BoardGrid = ({
     <div className="grid grid-cols-7 gap-1 font-mono text-center font-bold leading-6">
       {transition((style, value) => {
         return (
-          <animated.div style={{ ...style }}>
+          <animated.div style={style}>
             <Selector value={value} />
           </animated.div>
         );

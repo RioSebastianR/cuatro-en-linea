@@ -10,7 +10,7 @@ export const CardTeamWinner = () => {
 
   return (
     <div
-      className={`w-full max-w-sm ${bgColorTeam} text-white border border-gray-200 rounded-lg shadow `}
+      className={`w-full max-w-sm ${bgColorTeam} text-white border border-gray-200 rounded-lg shadow`}
     >
       <div className="flex flex-col items-center p-4 md:p-8">
         <Avatar

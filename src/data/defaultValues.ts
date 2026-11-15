@@ -13,6 +13,7 @@ export interface BoardValue {
   row: number;
   column: number;
   isWinnerCombo?: boolean;
+  active?: boolean;
 }
 
 const defaultValues: BoardValue[] = [];

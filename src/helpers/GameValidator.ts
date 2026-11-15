@@ -11,7 +11,6 @@ export const validateWinner = (board: BoardValue[]): number[] => {
     const winnerComboCoordinates = winnerCombo.map((number) => {
       return transformNumberToRowColumn(number);
     });
-    // [0,0], [0,1], [0,2], [0,3]
 
     const combo1 = board.find(
       ({ row, column, team }) =>
