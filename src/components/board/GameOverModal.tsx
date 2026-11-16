@@ -4,11 +4,12 @@ interface Props {
   show: boolean;
   children: JSX.Element;
   onReset(): void;
+  onClose(): void;
 }
 
-export const GameOverModal = ({ show, children, onReset }: Props) => {
+export const GameOverModal = ({ show, children, onReset, onClose }: Props) => {
   return (
-    <Modal size="md" position="top-right" show={show} onClose={onReset}>
+    <Modal size="md" position="top-right" show={show} onClose={onClose}>
       <Modal.Header>
         <span className="font-bungee-spice">Has ganado!</span>
       </Modal.Header>

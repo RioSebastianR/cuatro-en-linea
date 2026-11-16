@@ -51,6 +51,9 @@ export const Board = () => {
     onStart: startGame,
   });
 
+  const closeModal = () => {
+    setOpenModal(false);
+  };
   // Funcion que sirve para actualizar el estado general del tablero, recibe el selector que se acaba de actualizar
   const handleChange = (value: TeamEnum, index: number): void => {
     if (disableSelector) {
@@ -172,7 +175,7 @@ export const Board = () => {
         </div>
       </div>
 
-      <GameOverModal show={openModal} onReset={resetGame}>
+      <GameOverModal show={openModal} onClose={closeModal} onReset={resetGame}>
         <CardTeamWinner />
       </GameOverModal>
     </>
