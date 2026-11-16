@@ -19,5 +19,5 @@
 }
 
 .active {
-  animation: falling 1s ease-in forwards 1;
+  animation: falling 0.75s ease-in forwards 1;
 }

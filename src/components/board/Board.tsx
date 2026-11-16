@@ -87,7 +87,7 @@ export const Board = () => {
             };
             updateBoard(updatedValueBoard);
             setDisableSelector(false);
-          }, 1000);
+          }, 750);
 
           setLastTeamPlayed(currentTurn);
           changeTurn();
