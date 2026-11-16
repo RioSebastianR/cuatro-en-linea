@@ -1,5 +1,6 @@
 import { BoardValue } from "../../data/defaultValues";
 import { TeamEnum } from "./TeamEnum";
+import { transformRowColumnToNumber } from "./WinnerCombos";
 
 interface Props {
   value: BoardValue;
@@ -22,17 +23,19 @@ export const Selector = ({ value }: Props) => {
     <div
       className={`mx-auto ${pendingStatus} rounded-full shadow-lg ${bgColor} my-2 text-sm ${size} ${value?.active ? "active" : ""}`}
     >
-      {value.team && (
-        <div className="flex justify-center items-center h-full w-full">
-          <span className="text-white font-bold">
-            {value.isWinnerCombo && (
-              <span className="text-yellow-200 text-2xl font-bold animate-pulse">
-                {value.team === TeamEnum.A ? "A" : "B"}
-              </span>
-            )}
-          </span>
-        </div>
-      )}
+      <div className="flex justify-center items-center h-full w-full">
+        <span className="text-white font-bold">
+          {value.isWinnerCombo && (
+            <>
+              {value.team && (
+                <span className="text-yellow-200 text-2xl font-bold animate-pulse">
+                  {value.team === TeamEnum.A ? "A" : "B"}
+                </span>
+              )}
+            </>
+          )}
+        </span>
+      </div>
     </div>
   );
 };

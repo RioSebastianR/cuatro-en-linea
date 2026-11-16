@@ -1,3 +1,5 @@
+import { columns } from "../../data/defaultValues";
+
 const WINNER_ROW_COMBOS: number[][] = [
   [0, 1, 2, 3],
   [1, 2, 3, 4],
@@ -102,36 +104,10 @@ const WINNER_DIAGONAL_COMBOS: number[][] = [
   [38, 32, 26, 20],
 ];
 
-const getDiagonalValidator = (add: number): number[][] => {
-  return WINNER_DIAGONAL_COMBOS.map((item) => {
-    const [a, b, c, d] = item;
-    return [a + add, b + add, c + add, d + add];
-  });
-};
-
-const getDiagonalWinners = (): number[][] => {
-  return [
-    // COLUMN 1
-    ...WINNER_DIAGONAL_COMBOS,
-    // COLUMN 2
-    ...getDiagonalValidator(1),
-    // COLUMN 3
-    ...getDiagonalValidator(2),
-    // COLUMN 4
-    ...getDiagonalValidator(3),
-    // COLUMN 5
-    ...getDiagonalValidator(4),
-    // COLUMN 6
-    ...getDiagonalValidator(5),
-    // COLUMN 7
-    ...getDiagonalValidator(6),
-  ];
-};
-
 export const WINNER_COMBOS = [
   ...getHorizontalWinners(),
   ...getVerticalWinners(),
-  ...getDiagonalWinners(),
+  ...WINNER_DIAGONAL_COMBOS,
 ];
 
 export const transformNumberToRowColumn = (
@@ -140,4 +116,11 @@ export const transformNumberToRowColumn = (
   const row = Math.floor(index / 7);
   const column = index % 7;
   return { row, column };
+};
+
+export const transformRowColumnToNumber = (
+  row: number,
+  column: number,
+): number => {
+  return row * columns.length + column;
 };
