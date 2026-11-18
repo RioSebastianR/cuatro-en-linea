@@ -1,6 +1,5 @@
 import { BoardValue } from "../../data/defaultValues";
 import { TeamEnum } from "./TeamEnum";
-import { transformRowColumnToNumber } from "./WinnerCombos";
 
 interface Props {
   value: BoardValue;

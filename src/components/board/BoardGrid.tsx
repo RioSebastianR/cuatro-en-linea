@@ -39,7 +39,6 @@ export const BoardGrid = ({
           isWinnerCombo: true,
         };
       });
-      console.log("updatedBoard", updatedBoard);
       setBoardUi(updatedBoard);
     }
   }, [board, winnerCombo]);
@@ -51,7 +50,7 @@ export const BoardGrid = ({
   }, [board, updateBoardWinnerCombo, winnerCombo]);
 
   return (
-    <div className="grid grid-cols-7 gap-1 font-mono text-center font-bold leading-6">
+    <div className="w-full grid grid-cols-7 gap-1 font-mono text-center font-bold leading-6">
       {transition((style, value) => {
         return (
           <animated.div style={style}>
