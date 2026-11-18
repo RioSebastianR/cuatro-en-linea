@@ -1,20 +1,16 @@
 import { CardTeam } from "./CardTeam";
-import { Button, DarkThemeToggle } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { TeamEnum } from "./TeamEnum";
 import { useContext } from "react";
 import { GameContext } from "../../contexts/GameContext";
+import { GameHeader } from "../GameHeader";
 
 export const Sideboard = () => {
   const { currentTurn, winner, resetGame, stopGame } = useContext(GameContext);
 
   return (
-    <div className="mx-auto md:basis-1/4 basis-4/4 p-6 md:p-6 sm:px-6 lg:px-8 text-white">
-      <div className="m-6 flex justify-end">
-        <h1 className="w-full text-center text-2xl font-bungee-spice">
-          4 en linea
-        </h1>
-        <DarkThemeToggle />
-      </div>
+    <div className="mx-auto md:basis-2/5 basis-4/4 p-6 md:p-6 sm:px-6 lg:px-8 text-white">
+      <GameHeader />
       {winner === undefined && (
         <div className="flex md:flex-col flex-row gap-6">
           <CardTeam
@@ -39,7 +35,7 @@ export const Sideboard = () => {
         </Button>
         <Button
           gradientDuoTone="tealToLime"
-          className="mt-12 font-bungee"
+          className="ml-3 mt-12 font-bungee"
           onClick={stopGame}
         >
           Volver al Menu Principal
